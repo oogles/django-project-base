@@ -27,3 +27,17 @@ This one ignores:
 * the ``README`` file
 * the ``docs/`` directory
 * all ``migrations/`` directories
+
+
+dev_requirements.txt
+====================
+
+This is a pip requirements file that provides a base list standard requirements *for development*. It includes:
+
+* ``Django``
+* ``django-extensions``, for helpful development tools such as ``shell_plus``
+* ``sphinx``, for building documentation
+* ``sphinx_rtd_theme``, so documentation can be previewed in the theme it would use on readthedocs.org (to enable the theme, see ??? below)
+* ``flake8`` and ``isort``, for code linting
+* ``tox``, for testing under different versions of Django, Python, etc
+* ``coverage``, for analysing code coverage by the test suite

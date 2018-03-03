@@ -1,0 +1,8 @@
+Django
+django-extensions
+sphinx
+sphinx_rtd_theme
+isort
+flake8
+tox
+coverage
