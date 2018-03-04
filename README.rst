@@ -65,6 +65,16 @@ manage.py
 Another file that is only required for Django apps, **not for full Django projects**. Again, the real ``manage.py`` should be used there instead. For app development, this file gives access to the regular ``manage.py`` commands using the ``test_settings.py`` file.
 
 
+setup.cfg
+=========
+
+**This file will require modification**
+
+This file contains configuration options for ``flake8``, ``isort``, and ``coverage.py``, when those tools are run from the project directory.
+
+The ``[coverage:run]`` section needs modifying to specify the subdirectory to include in the test coverage analysis. E.g. the subdirectory containing the Django app being developed. It also contains an omission for the ``env.py`` file written by the ``vagrant-django`` provisioning process. If not using this provisioning process, this can be removed.
+
+
 docs/_ext/djangodocs.py
 =======================
 
