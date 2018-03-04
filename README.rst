@@ -94,7 +94,7 @@ Update paths for autodoc and plugins
 
 If the documentation makes use of *autodoc*, the Python path needs to be updated to include the project source directory. Likewise, if using the included Django documentation plugins, the path needs to be updated to be able to find ``djangodocs.py``.
 
-An example will be given. Replace it with the new paths. In both cases, ``os.path.abspath`` is used to build an absolute path from one that is relative to the ``docs/`` directory.
+An example will be given. Replace it with the new paths. In both cases, ``os.path.abspath()`` is used to build an absolute path from one that is relative to the ``docs/`` directory.
 
 .. code-block:: python
 
@@ -116,7 +116,7 @@ Setup Django
 
 Again, if the documentation makes use of *autodoc*, and the project code imports certain parts of the Django framework (most parts, really), then Django may need to be set up first - something ``manage.py`` would typically handle.
 
-A settings module is required. The included ``test_settings.py``, or a full Django project's real ``settings.py`` can be used here. Note, however, that *autodoc* doesn't *execute* any code, merely *imports* it, so a bare-minimum settings file is all that is necessary. A separate settings file, e.g. ``doc_settings.py``, could be used for this purpose if the full settings file is not suitable.
+A settings module is required. The included ``test_settings.py``, or a full Django project's real ``settings.py``, can be used here. Note, however, that *autodoc* doesn't *execute* any code, merely *imports* it, so a bare-minimum settings file is all that is necessary. A separate settings file, e.g. ``doc_settings.py``, could be used for this purpose if the full settings file is not suitable.
 
 This segment should be included somewhere near the top of ``conf.py``. If necessary, replace ``test_settings`` with the name of the appropriate settings file to use.
 
@@ -135,7 +135,7 @@ Enable useful extensions
 
 Specify which extensions Sphinx should use when building the documentation. This may be partially completed already, depending on how the ``sphinx-quickstart`` prompts were answered. Some useful options here are:
 
-* `autodoc <http://www.sphinx-doc.org/en/stable/ext/autodoc.html>`_: Enables including in-code docstrings in the documentation via directive such as ``.. automodule::``, ``.. autoclass::``, ``.. autofunction::``, etc.
+* `autodoc <http://www.sphinx-doc.org/en/stable/ext/autodoc.html>`_: Enables including in-code docstrings in the documentation via directives such as ``.. automodule::``, ``.. autoclass::``, ``.. autofunction::``, etc.
 * `viewcode <http://www.sphinx-doc.org/en/stable/ext/viewcode.html>`_: Enables including separate documentation pages containing source code, with links from the main documentation, when using directives such as ``.. class::``, ``.. function::``, etc.
 * djangodocs: The included extension providing ``:setting:``, ``:ttag:``, and ``:tfilter:`` roles.
 
@@ -171,10 +171,10 @@ Enable the theme used by default by readthedocs.org, allowing the documentation 
 Writing docs
 ------------
 
-To start writing docs, edit index.rst, and link to additional files from there. To build the docs as HTML for viewing in the browser as they would appear on readthedocs.org, run ``make html`` from the ``docs/`` directory.
+To start writing docs, edit ``index.rst``, and link to additional files from there. To build the docs as HTML for viewing in the browser as they would appear on readthedocs.org, run ``make html`` from the ``docs/`` directory.
 
 
 .readthedocs.yml
 ================
 
-Config file for readthedocs.org. Used exclusively to configure documentation to be built under Python 3 - required if installing Django >= 2.0 as part of building the docs (e.g. when using ``autodoc``, as noted in the ``conf.py`` notes above).
+Config file for readthedocs.org. Used exclusively to configure documentation to be built under Python 3 - required if installing Django >= 2.0 as part of building the docs (e.g. when using *autodoc*, as noted in the ``conf.py`` notes above).
