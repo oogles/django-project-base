@@ -72,7 +72,13 @@ setup.cfg
 
 This file contains configuration options for ``flake8``, ``isort``, and ``coverage.py``, when those tools are run from the project directory.
 
-The ``[coverage:run]`` section needs modifying to specify the subdirectory to include in the test coverage analysis. E.g. the subdirectory containing the Django app being developed. It also contains an omission for the ``env.py`` file written by the ``vagrant-django`` provisioning process. If not using this provisioning process, this can be removed.
+The ``[coverage:run]`` section needs modifying to specify the subdirectory to include in the test coverage analysis. E.g. the subdirectory containing the Django app being developed. It also contains an omission for the ``env.py`` file written by the ``vagrant-django`` provisioning process. The path to this file also needs modifying, but can be removed entirely if not using the ``vagrant-django`` provisioning process.
+
+For more configuration options, see:
+
+* ``flake8``: http://flake8.pycqa.org/en/latest/user/options.html
+* ``isort``: https://github.com/timothycrosley/isort/wiki/isort-Settings
+* ``coverage.py``: http://coverage.readthedocs.io/en/coverage-4.5.1/config.html
 
 
 docs/_ext/djangodocs.py
