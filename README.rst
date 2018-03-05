@@ -81,6 +81,40 @@ For more configuration options, see:
 * ``coverage.py``: http://coverage.readthedocs.io/en/coverage-4.5.1/config.html
 
 
+tox.coverage.py
+===============
+
+This script is designed to be called from within a ``tox`` environment, after generating test coverage data with ``coverage.py``, to generate a report on that data based on the environment in which the test suite was run. If run locally, it uses ``coverage.py`` to print a basic report, skipping files that had complete coverage, and generate a fully detailed HTML report for later viewing in a browser. If run in a Travis CI environment, it uses the ``coveralls`` command from the ``coveralls-python`` `library <http://coveralls-python.readthedocs.io/en/latest/>`_ to submit the data to `coveralls.io <https://coveralls.io/>`_.
+
+
+tox.ini
+=======
+
+**This file will require modification**
+
+This configuration file for ``tox`` sets up multiple environments to run:
+
+* the full test suite and coverage measurement (both statement coverage and `branch coverage <http://coverage.readthedocs.io/en/latest/branch.html>`_)
+* ``flake8``
+* ``isort`` (in ``--check-only`` mode, no changes are made)
+
+It is configured for use on Travis CI, and calls the above-mentioned ``tox.coverage.py`` script after running the test suite, in order to report the coverage results according to the environment (local or Travis).
+
+It includes the ``coverage`` and ``coveralls`` dependencies. Other dependencies may be required.
+
+It also includes an example setup for testing under multiple versions of Django across multiple versions of Python. The specific versions should be modified to suit the project. Note that the Python versions included in ``tox.ini`` should also be included in ``.travis.yml`` (see below).
+
+
+.travis.yml
+===========
+
+**This file will require modification**
+
+A very simple configuration file for Travis CI. It installs `tox-travis <https://github.com/tox-dev/tox-travis>`_ which, as it advertises, enables seamless integration of ``tox`` into Travis CI. Then it just runs ``tox``.
+
+The listed versions of Python just need to be kept in line with those listed in ``tox.ini``.
+
+
 docs/_ext/djangodocs.py
 =======================
 
