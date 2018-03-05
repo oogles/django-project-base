@@ -2,9 +2,9 @@
 django-project-base
 ===================
 
-Sample config/setup files for a generic Django project. Most of these files can be dropped into new projects as-is, though some do require per-project configuration. See the description of each included file below for more info.
+Sample config/setup files for a generic Django development project. Most of these files can be dropped into new projects as-is, though some do require per-project configuration. See the description of each included file below for more info.
 
-Not all of these files will be relevant to all projects. E.g. when developing a full Django project (as opposed to a distributable Django app), the ``setup.py`` and associated files will most likely not be necessary.
+Not all of these files will be relevant to all projects. E.g. when developing a full Django project (as opposed to a distributable Django app), the ``setup.py`` and associated files will most likely not be necessary, nor will ``test_settings.py`` and ``manage.py``.
 
 
 .gitignore
@@ -239,7 +239,7 @@ LICENSE
 
 This file holds the license under which the project is released.
 
-The included license is the `MIT license <https://www.tldrlegal.com/l/mit>`_, being that with which ``django-project-base`` itself is licensed. It should be changed as necessary.
+The included license is the `MIT license <https://tldrlegal.com/license/mit-license>`_, being that with which ``django-project-base`` itself is licensed. It should be changed as necessary.
 
 Even if not changing the license itself, the copyright year and copyright holder should be updated accordingly.
 
@@ -257,14 +257,14 @@ setup.py
 
 **This file will require modification**
 
-This file is the setup script for building, distributing, and installing the project as a Python module. The included file uses the ``setuptools`` `extension of <http://setuptools.readthedocs.io/en/latest/setuptools.html#new-and-changed-setup-keywords>`_ ``distutils``, as it makes it easier to define the package setup.
+This file is the setup script for building, distributing, and installing the project as a Python module. The included file uses the ``setuptools`` `extension of <http://setuptools.readthedocs.io/en/latest/setuptools.html>`_ ``distutils``, as it makes it easier to define the package setup.
 
 It primarily consists of a call to the imported ``setup()`` function, the arguments to which define the attributes of the project necessary to build, distribute, and install it. Most of the arguments are project-specific and require custom configuration, but a few things are included that can be common across projects:
 
 * The ``version`` argument is set by reading the value of the ``__version__`` module-level variable included in the ``__init__.py`` file of the source directory. This helps reduce the number of places the version number needs to be modified when it is updated. It assumes a few things:
 
     * There is a subdirectory under the main project directory (in which these config files reside) that contains the project's source code. The path to this subdirectory should be set using the ``source_dir`` variable at the top of ``setup.py``.
-    * There is a ``__version__`` module-level variable that defines a sane version string, such as ``'2.8'``, ``'1.6.2'``, ``'0.4.6dev1'``, etc.
+    * There is a ``__version__`` module-level variable in that subdirectory's ``__init__.py`` file that defines a sane version string, such as ``'2.8'``, ``'1.6.2'``, ``'0.4.6dev1'``, etc.
 
 * The ``long_description`` argument is populated from the ``README.rst`` file. Again, this helps avoid repetition, and can provide a more useful extended description of the project than could easily be written in ``setup.py`` itself.
 
