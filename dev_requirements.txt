@@ -1,8 +1,15 @@
+# Django
 Django
 django-extensions
+Pillow
+psycopg2
+
+# Testing/Linting
+coverage
+flake8
+isort
+tox
+
+# Documentation
 sphinx
 sphinx_rtd_theme
-isort
-flake8
-tox
-coverage
