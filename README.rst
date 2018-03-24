@@ -38,11 +38,13 @@ This is a pip requirements file that provides a base list of standard requiremen
 
 * ``Django``
 * ``django-extensions``, for helpful development tools such as ``shell_plus``
-* ``sphinx``, for building documentation
-* ``sphinx_rtd_theme``, so documentation can be previewed in the theme it would use on readthedocs.org (to enable the theme, see ??? below)
+* ``Pillow`` for image-related functionality
+* ``psycopg2`` for PostgreSQL support
 * ``flake8`` and ``isort``, for code linting
-* ``tox``, for testing under different versions of Django, Python, etc
 * ``coverage``, for analysing code coverage by the test suite
+* ``tox``, for testing under different versions of Django, Python, etc
+* ``sphinx``, for building documentation
+* ``sphinx_rtd_theme``, so documentation can be previewed in the theme it would use on readthedocs.org (to enable the theme, see the notes on ``docs/conf.py`` below)
 
 Any additional *development* dependencies for the project can be added to this file.
 
@@ -74,7 +76,7 @@ setup.cfg
 
 This file contains configuration options for ``flake8``, ``isort``, and ``coverage.py``, when those tools are run from the project directory.
 
-The ``[coverage:run]`` section needs modifying to specify the subdirectory to include in the test coverage analysis. E.g. the subdirectory containing the Django app being developed. It also contains an omission for the ``env.py`` file written by the ``vagrant-django`` provisioning process. The path to this file also needs modifying, but can be removed entirely if not using the ``vagrant-django`` provisioning process.
+The ``[coverage:run]`` section needs modifying to specify the subdirectory to include in the test coverage analysis. E.g. the subdirectory containing the Django app being developed. It also contains some omissions for common files in this subdirectory that are not necessary to analyse for test coverage, the paths to which also needs modifying (or removing, if your project does not include them).
 
 For more configuration options, see:
 
